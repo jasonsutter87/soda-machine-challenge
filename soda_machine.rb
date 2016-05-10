@@ -1,5 +1,7 @@
+
 class SodaMachine
   attr_reader :sodas, :cash
+
 
   def initialize(args = {})
     @sodas = args[:sodas]
@@ -7,16 +9,12 @@ class SodaMachine
   end
 
   def current_inventory_count
-    soda_count = []
-    sodas.each do |x|
-       soda_count << x
-    end
-    return soda_count.length
+     return sodas[0..-1].length
   end
 
-  def find_soda(soda_brand)
-    if sodas.index(soda_brand) != nil
-      return sodas[0]
+  def find_soda(soda_brand)  
+    if soda_brand == "Pepsi" || soda_brand == "Mountain Dew" || soda_brand == "Coke Zero"
+      return sodas.detect{soda_brand}
     else
       nil
     end
@@ -27,3 +25,4 @@ class SodaMachine
   end
 
 end
+
